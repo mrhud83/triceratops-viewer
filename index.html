@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Triceratops 3D Model</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { margin: 0; background: #000; }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+    #ar-prompt {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .progress-bar {
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .update-bar {
+      height: 100%;
+      width: 0%;
+      background-color: white;
+    }
+    #ar-button {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<model-viewer 
+  src="SK_Triceratops_Anim_Clips_Box.glb"
+  ar 
+  ar-modes="scene-viewer webxr quick-look"
+  camera-controls 
+  tone-mapping="neutral"
+  poster="https://modelviewer.dev/shared-assets/models/Astronaut.webp"
+  shadow-intensity="0"
+  autoplay 
+  environment-image="https://modelviewer.dev/shared-assets/environments/pillars_1k.hdr"
+  exposure="1.64">
+
+  <div class="progress-bar" slot="progress-bar">
+    <div class="update-bar"></div>
+  </div>
+
+  <button slot="ar-button" id="ar-button">View in your space</button>
+
+  <div id="ar-prompt">
+    <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR prompt">
+  </div>
+</model-viewer>
+
+</body>
+</html>
